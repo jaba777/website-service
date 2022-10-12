@@ -28,28 +28,40 @@
     font-size: 32px;
 }
 
-.website-tipe{
+.website-tipe,
+.Branding,
+.additional-features{
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
 .website-tipe h3,
-.Branding h3{
+.Branding h3,
+.additional-features h3{
     color: #676b6e;
     font-weight: 700;
     margin-top: 2rem;
 }
 
-.website-buttons{
+.website-buttons,
+.branding-buttons,
+.additional-buttons{
     display: flex;
     align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
+
 .website-buttons button,
-.branding-buttons button{
+.branding-buttons button,
+.additional-buttons button{
     border: none;
     font-weight: 600;
     padding: 0.5rem 1rem;
+}
+
+.website-buttons button.webtypeaddHandler{
+    border: 1px solid red;
 }
