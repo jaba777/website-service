@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.service-container{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+.row-cont{
+    height: 100vh;
+}
+
+.details-info{
+    background: #36454F;
+    color: #fff;
+}
+.second-cont{
+    padding: 1rem 2rem;
+}
+
+.service-title{
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.website-tipe{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.website-tipe h3,
+.Branding h3{
+    color: #676b6e;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+.website-buttons{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.website-buttons button,
+.branding-buttons button{
+    border: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
