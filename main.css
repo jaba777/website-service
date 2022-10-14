@@ -65,7 +65,12 @@
 .website-buttons button.webtypeaddHandler{
     border: 1px solid red;
 }
-
+.brand-list{
+   font-size: 0;
+}
+.brand-list *{
+    font-size: initial;
+}
 .branding-buttons button.brandaddHandler{
     background: rgb(47, 141, 158);
     color: #fff;

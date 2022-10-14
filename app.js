@@ -8,6 +8,8 @@ let brandList=document.querySelector('.brand-list');
 
 let startPrice =100;
 
+lastPrice.innerText=`$ ${startPrice}`;
+
 let booleanbrand=false
 
 let brandMassive=[];
@@ -91,6 +93,7 @@ const brandTypes=[
         })
     })
     
+ 
     
     brandButtons.forEach((brandbutton,index)=>{
     
@@ -103,29 +106,30 @@ const brandTypes=[
 
             if(liststyle){
                brandMassive.push(brandTypes[index]);
+                startPrice+=brandTypes[index].price;
     
             } else{
                 brandMassive=brandMassive.filter(item=> item.id!==brandTypes[index].id)
-               // console.log(brandMassive)
-              // brandList.remove(brandMassive[index].name)
+                startPrice-=brandTypes[index].price;
             }
 
            let brandChild=brandMassive.map((item)=>{
             let list = document.createElement('li');
             list.textContent = item.name;
-            return `<li>${list.outerText}</li>`
+            return list.outerHTML;
            })
-        
+       
            console.log(brandChild)
-            
-            brandList.innerHTML=brandChild;
+           
+           lastPrice.innerText=`$ ${startPrice}`;
+
+            brandList.innerHTML= brandChild;
         
     
         })
         
     })
     
-   
     
 
 
