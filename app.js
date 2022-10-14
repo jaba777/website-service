@@ -76,39 +76,55 @@ const brandTypes=[
 ]
 
 
-webTypeBtns.forEach((webtypebtn,index)=>{
-    webtypebtn.addEventListener('click', ()=>{
-        
-        document.querySelector('.webtypeaddHandler').classList.remove('webtypeaddHandler');
-        webtypebtn.classList.add('webtypeaddHandler');
-        webtypeText.textContent=webTypes[index].name;
-        startPrice=webTypes[index].price;
-    })
-})
 
 
-brandButtons.forEach((brandbutton,index)=>{
-
-    brandbutton.addEventListener('click',(event)=>{
-        
-        brandbutton.classList.toggle('brandaddHandler');
-
-
-        let list =brandbutton.classList.contains('brandaddHandler');
-
-        list ? brandMassive.push(brandTypes[index]) : brandMassive = brandMassive.filter(item=>item.id !==brandTypes[index].id);
-
-        console.log(brandMassive)
+    webTypeBtns.forEach((webtypebtn,index)=>{
+        webtypebtn.addEventListener('click', ()=>{
+            
+            document.querySelector('.webtypeaddHandler').classList.remove('webtypeaddHandler');
+            webtypebtn.classList.add('webtypeaddHandler');
+            webtypeText.textContent=webTypes[index].name;
+    
+            startPrice=webTypes[index].price;
+            //console.log(startPrice)
+            lastPrice.innerText=`$ ${startPrice}`;
+        })
     })
     
-})
+    
+    brandButtons.forEach((brandbutton,index)=>{
+    
+        brandbutton.addEventListener('click',()=>{
+            
+            brandbutton.classList.toggle('brandaddHandler');
+    
+    
+            let liststyle =brandbutton.classList.contains('brandaddHandler');
+
+            if(liststyle){
+               brandMassive.push(brandTypes[index]);
+    
+            } else{
+                brandMassive=brandMassive.filter(item=> item.id!==brandTypes[index].id)
+               // console.log(brandMassive)
+              // brandList.remove(brandMassive[index].name)
+            }
+
+           brandMassive.forEach((item)=>{
+            brandList.innerHTML=`
+                <li>${item.name}</li>
+            `
+           })
+           
+
+           
+        })
+        
+    })
+    
+   
+    
 
 
-console.log(brandMassive)
 
 
-
-
-
-
-lastPrice.textContent=`$ ${startPrice}`;
