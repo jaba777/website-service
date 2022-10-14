@@ -110,14 +110,17 @@ const brandTypes=[
               // brandList.remove(brandMassive[index].name)
             }
 
-           brandMassive.forEach((item)=>{
-            brandList.innerHTML+=`
-                <li>${item.name}</li>
-            `
+           let brandChild=brandMassive.map((item)=>{
+            let list = document.createElement('li');
+            list.textContent = item.name;
+            return `<li>${list.outerText}</li>`
            })
-           
-
-           
+        
+           console.log(brandChild)
+            
+            brandList.innerHTML=brandChild;
+        
+    
         })
         
     })
@@ -128,3 +131,14 @@ const brandTypes=[
 
 
 
+
+
+/*let langs = ['TypeScript','HTML','CSS'];
+
+let nodes = langs.map(lang => {
+    let li = document.createElement('li');
+    li.textContent = lang;
+    return li;
+});
+
+brandList.append(...nodes)*/
