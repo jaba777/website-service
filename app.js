@@ -111,7 +111,7 @@ const brandTypes=[
             }
 
            brandMassive.forEach((item)=>{
-            brandList.innerHTML=`
+            brandList.innerHTML+=`
                 <li>${item.name}</li>
             `
            })
