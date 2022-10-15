@@ -71,7 +71,20 @@
 .brand-list *{
     font-size: initial;
 }
+
 .branding-buttons button.brandaddHandler{
     background: rgb(47, 141, 158);
     color: #fff;
+}
+
+.additional-buttons button.additionalHandler{
+    background: rgb(155, 30, 103);
+    color: #fff;
+}
+
+.add-list{
+    font-size: 0;
+}
+.add-list *{
+    font-size: initial;
 }
