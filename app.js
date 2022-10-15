@@ -176,9 +176,17 @@ const additionalTypes=[
     
             startPrice=webTypes[index].price;
             startHours=webTypes[index].hours;
+
+            let brandreduc=brandMassive.reduce((a,b)=>a+b.price,0);
+            let additionreduce=additionalMassive.reduce((a,b)=>a+b.price,0);
+
+            let brandReducehour=brandMassive.reduce((a,b)=>a+b.hours,0);
+            let additionalHour=additionalMassive.reduce((a,b)=>a+b.hours,0);
+
+            let fullHours=brandReducehour+additionalHour+webTypes[index].hours;
             
-            lastPrice.innerText=`$ ${startPrice}`;
-            lastHour.innerText=`${startHours} HOUR`;
+            lastPrice.innerText=`$ ${brandreduc+additionreduce+webTypes[index].price}`;
+            lastHour.innerText=`${fullHours.toFixed(2)} HOUR`;
         })
     })
     
@@ -195,12 +203,10 @@ const additionalTypes=[
 
             if(liststyle){
                brandMassive.push(brandTypes[index]);
-                startPrice+=brandTypes[index].price;
-                startHours+=brandTypes[index].hours;
+                
             } else{
                 brandMassive=brandMassive.filter(item=> item.id!==brandTypes[index].id)
-                startPrice-=brandTypes[index].price;
-                startHours-=brandTypes[index].hours;
+                
             }
 
            let brandChild=brandMassive.map((item)=>{
@@ -208,11 +214,16 @@ const additionalTypes=[
             list.textContent = item.name;
             return list.outerHTML;
            })
-       
-           console.log(brandChild)
+
+           let brandreduc=brandMassive.reduce((a,b)=>a+b.price,0);
+           let additionreduce=additionalMassive.reduce((a,b)=>a+b.price,0);
+
+           let brandReducehour=brandMassive.reduce((a,b)=>a+b.hours,0);
+           let additionalHour=additionalMassive.reduce((a,b)=>a+b.hours,0);
+          
            
-           lastPrice.innerText=`$ ${startPrice}`;
-           lastHour.innerText=`${startHours.toFixed(2)} HOUR`;
+           lastPrice.innerText=`$ ${brandreduc+additionreduce+startPrice}`;
+           lastHour.innerText=`${(brandReducehour+additionalHour+startHours).toFixed(2)} HOUR`;
 
             brandList.innerHTML= brandChild;
         
@@ -228,12 +239,10 @@ const additionalTypes=[
 
             if(listStyle){
                 additionalMassive.push(additionalTypes[index]);
-                startPrice+=additionalTypes[index].price;
-                startHours+=additionalTypes[index].hours;
+                
             } else{
                 additionalMassive=additionalMassive.filter(item=>item.id!==additionalTypes[index].id);
-                startPrice-=additionalTypes[index].price;
-                startHours-=additionalTypes[index].hours;
+                
             }
 
             let additionChild=additionalMassive.map(item=>{
@@ -242,8 +251,14 @@ const additionalTypes=[
                 return list.outerHTML;
             })
 
-            lastPrice.innerText=`$ ${startPrice}`;
-            lastHour.innerText=`${startHours.toFixed(2)} HOUR`;
+            let brandreduc=brandMassive.reduce((a,b)=>a+b.price,0);
+            let additionreduce=additionalMassive.reduce((a,b)=>a+b.price,0);
+
+            let brandReducehour=brandMassive.reduce((a,b)=>a+b.hours,0);
+           let additionalHour=additionalMassive.reduce((a,b)=>a+b.hours,0);
+
+            lastPrice.innerText=`$ ${brandreduc+additionreduce+startPrice}`;
+            lastHour.innerText=`${(brandReducehour+additionalHour+startHours).toFixed(2)} HOUR`;
 
             addList.innerHTML=additionChild;
 
