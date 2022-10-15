@@ -16,9 +16,26 @@
 }
 
 .details-info{
-    background: #36454F;
+    background: #263036;
     color: #fff;
 }
+
+.details-info div{
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.details-info div p{
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.details-info h4{
+    color: #6b6f72;
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .second-cont{
     padding: 1rem 2rem;
 }
