@@ -1,29 +1,3 @@
-const webTypeBtns= document.querySelectorAll('.website-buttons button');
-const brandButtons=document.querySelectorAll('.branding-buttons button');
-
-const additionalBtns=document.querySelectorAll('.additional-buttons button');
-
-let webtypeText=document.querySelector('.websyte-type');
-let lastPrice = document.querySelector('.last-price');
-let lastHour=document.querySelector('.last-hours');
-
-let brandList=document.querySelector('.brand-list');
-
-let addList=document.querySelector('.add-list');
-
-let startPrice =100;
-let startHours=3;
-
-lastPrice.innerText=`$ ${startPrice}`;
-lastHour.innerText=`${startHours} HOUR`;
-
-let booleanbrand=false
-
-let brandMassive=[];
-
-let additionalMassive=[];
-
-
 const webTypes= [
     {
         id:1,
@@ -64,6 +38,19 @@ const webTypes= [
 ]
 
 
+const websiteBtns=document.querySelector('.website-buttons');
+
+
+for(let i=0;i<webTypes.length;i++){
+    let button = document.createElement('button');
+    button.innerText=webTypes[i].name;
+    if(i===0){
+        button.classList.add('webtypeaddHandler');
+    }
+    websiteBtns.append(button)
+}
+
+
 const brandTypes=[
     {
         id:1,
@@ -96,6 +83,15 @@ const brandTypes=[
         hours: 4,
     },
 ]
+
+const BrandingBtns=document.querySelector('.branding-buttons');
+
+for(let i=0; i<brandTypes.length;i++){
+    let button=document.createElement('button');
+    button.innerText=brandTypes[i].name;
+    BrandingBtns.append(button);
+}
+
 
 const additionalTypes=[
     {
@@ -163,6 +159,47 @@ const additionalTypes=[
         hours: 2.6,
     },
 ]
+
+
+const additionalBtnsParent=document.querySelector('.additional-buttons');
+
+for(let i=0; i<additionalTypes.length; i++){
+    let buttons=document.createElement('button');
+    buttons.innerText=additionalTypes[i].name;
+    additionalBtnsParent.append(buttons);
+}
+
+
+
+
+
+
+const webTypeBtns= document.querySelectorAll('.website-buttons button');
+const brandButtons=document.querySelectorAll('.branding-buttons button');
+
+const additionalBtns=document.querySelectorAll('.additional-buttons button');
+
+let webtypeText=document.querySelector('.websyte-type');
+let lastPrice = document.querySelector('.last-price');
+let lastHour=document.querySelector('.last-hours');
+
+let brandList=document.querySelector('.brand-list');
+
+let addList=document.querySelector('.add-list');
+
+let startPrice =100;
+let startHours=3;
+
+lastPrice.innerText=`$ ${startPrice}`;
+lastHour.innerText=`${startHours.toFixed(2)} HOUR`;
+
+let booleanbrand=false
+
+let brandMassive=[];
+
+let additionalMassive=[];
+
+
 
 
 
@@ -250,6 +287,8 @@ const additionalTypes=[
                 list.textContent=item.name;
                 return list.outerHTML;
             })
+
+            console.log(additionChild)
 
             let brandreduc=brandMassive.reduce((a,b)=>a+b.price,0);
             let additionreduce=additionalMassive.reduce((a,b)=>a+b.price,0);
